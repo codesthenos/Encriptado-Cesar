@@ -1,8 +1,13 @@
 from funciones_cesar import *
 
-def test_suma():
+def test_encriptador_cesar():
 
-  assert suma(5, 7) == 25
-  assert suma(-5, 8) == 25
-  assert suma(0, 0) == 25
-  assert suma(4, -5) == -1 # suma(4, -5) es 25 por lo que el test aqui casca
+  assert encriptador_cesar('hola', 56) == 'HOLA'
+  assert encriptador_cesar('hola', 0) == 'HOLA'
+  assert encriptador_cesar('hola', -33) == 'ESIÑ'
+  assert encriptador_cesar('', -56) == ''
+  assert encriptador_cesar('', 0) == ''
+  assert encriptador_cesar('', 33) == ''
+  assert encriptador_cesar('Hola, mundo!', -56) == 'HOLA, MUNDO'
+  assert encriptador_cesar('Hola, mundo!', 0) == 'HOLA, MUNDO!'
+  assert encriptador_cesar('Hola, mundo!', 30) == 'LSND, ÑYSÑH'
