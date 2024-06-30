@@ -1,5 +1,15 @@
 from funciones_cesar import *
 
+def test_encriptador_char():
+
+  assert encriptardor_char('h', 56) == ('H')
+  assert encriptardor_char('h', -56) == ('H')
+  assert encriptardor_char('h', 0) == ('H')
+  assert encriptardor_char('h', 57) == ('I')
+  assert encriptardor_char('h', -57) == ('G')
+  assert encriptardor_char(' ', -57) == (' ')
+  assert encriptardor_char('!', -57) == ('!')
+
 def test_encriptador_cesar():
 
   assert encriptador_cesar('hola', 56) == 'HOLA'
