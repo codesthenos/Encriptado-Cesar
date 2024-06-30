@@ -1,14 +1,33 @@
+from constante_ABC import ABC
 from funciones_cesar import *
+
+def test_validador_char():
+
+  assert validador_char('a') == True
+  assert validador_char(' ') == True
+  assert validador_char('!') == False
+
+def test_validador_clave():
+
+  assert modulador_clave(5) == 5
+  assert modulador_clave(-5) == -5
+  assert modulador_clave(28) == 0
+  assert modulador_clave(33) == 5
+  assert modulador_clave(-33) == -5
 
 def test_encriptador_char():
 
-  assert encriptardor_char('h', 56) == ('H')
-  assert encriptardor_char('h', -56) == ('H')
-  assert encriptardor_char('h', 0) == ('H')
-  assert encriptardor_char('h', 57) == ('I')
-  assert encriptardor_char('h', -57) == ('G')
-  assert encriptardor_char(' ', -57) == (' ')
-  assert encriptardor_char('!', -57) == ('!')
+  assert encriptador_char('z', 2) == ('A')
+  assert encriptador_char('a', -2) == ('Z')
+  assert encriptador_char('h', 56) == ('H')
+  assert encriptador_char('h', -56) == ('H')
+  assert encriptador_char('h', 0) == ('H')
+  assert encriptador_char('h', 57) == ('I')
+  assert encriptador_char('h', -57) == ('G')
+  assert encriptador_char(' ', -57) == ('Z')
+  assert encriptador_char('!', -57) == ('!')
+  assert encriptador_char('a', -57) == (' ')
+  assert encriptador_char('a', -60) == ('X')
 
 def test_encriptador_cesar():
 

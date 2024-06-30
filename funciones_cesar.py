@@ -1,21 +1,46 @@
 from constante_ABC import ABC
 
-def encriptardor_char(char: str, clave: int)-> str:
-  char_encriptado: str = ''
-  if char.upper() in ABC and char != ' ':
+def validador_char(char: str)-> str:
+  is_valid_char = False
+
+  if char.upper() in ABC:
+      is_valid_char = True
+
+  return is_valid_char
+
+def modulador_clave(clave: int)-> int:
+  clave_modulada: int = clave
+  clave_absoluta: int = abs(clave)
+
+  if clave_absoluta >= len(ABC):
+    clave_modulada = clave_absoluta % len(ABC)
+    if clave < 0:
+      clave_modulada = -clave_modulada
+
+  return clave_modulada
+
+def encriptador_char(char: str, clave: int)-> str:
+  char_encriptado: str = char
+
+  if validador_char(char):
       indice_char: int = ABC.index(char.upper())
-      char_encriptado = ABC[indice_char+clave]
-  else:
-    char_encriptado = char
+      clave_modulada = modulador_clave(clave)
+      nuevo_indice: int = indice_char + clave_modulada
+      
+      if nuevo_indice >= len(ABC):
+        nuevo_indice = nuevo_indice - len(ABC)
+      elif nuevo_indice < 0:
+        nuevo_indice = nuevo_indice + len(ABC)
+      
+      char_encriptado = ABC[nuevo_indice]
+
   return char_encriptado
 
 def encriptador_cesar(mensaje: str, clave: int)-> str:
   mensaje_encriptado: str = ''
   for char in mensaje:
     if char in ABC and char != ' ':
-      mensaje_encriptado += encriptardor_char(char, clave)
+      mensaje_encriptado += encriptador_char(char, clave)
     else:
       mensaje_encriptado += char
   return mensaje_encriptado.upper()
-print(encriptador_cesar('Hola', 0))
-print(len(ABC))
