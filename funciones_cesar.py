@@ -39,8 +39,6 @@ def encriptador_char(char: str, clave: int)-> str:
 def encriptador_cesar(mensaje: str, clave: int)-> str:
   mensaje_encriptado: str = ''
   for char in mensaje:
-    if char in ABC and char != ' ':
-      mensaje_encriptado += encriptador_char(char, clave)
-    else:
-      mensaje_encriptado += char
-  return mensaje_encriptado.upper()
+    mensaje_encriptado += encriptador_char(char, clave)
+
+  return mensaje_encriptado
