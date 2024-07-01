@@ -1,0 +1,1 @@
+ABC:list = list("ABCDEFGHIJKLMNÑOPQRSTUVWXYZ ")
