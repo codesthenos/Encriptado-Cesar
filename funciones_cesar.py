@@ -1,7 +1,7 @@
 from constante_ABC import ABC
 
 def validador_char(char: str)-> str:
-  is_valid_char = False
+  is_valid_char:bool = False
 
   if char.upper() in ABC:
       is_valid_char = True
@@ -35,10 +35,3 @@ def encriptador_char(char: str, clave: int)-> str:
       char_encriptado = ABC[nuevo_indice]
 
   return char_encriptado
-
-def encriptador_cesar(mensaje: str, clave: int)-> str:
-  mensaje_encriptado: str = ''
-  for char in mensaje:
-    mensaje_encriptado += encriptador_char(char, clave)
-
-  return mensaje_encriptado

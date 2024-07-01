@@ -1,3 +1,1 @@
-ABC = list("ABCDEFGHIJKLMNÑOPQRSTUVWXYZ ")
-for a,b in enumerate(ABC):
-  print(a,b)
+ABC:list = list("ABCDEFGHIJKLMNÑOPQRSTUVWXYZ ")
