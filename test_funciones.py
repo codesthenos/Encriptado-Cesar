@@ -1,7 +1,7 @@
 from constante_ABC import ABC
 from funciones_cesar import *
 from funcion_encriptador_cesar import encriptador_cesar
-from funcion_creadora import creador_funciones_encriptador_cesar
+from funciones_creadoras import creador_funciones_encriptador_cesar, creador_par_cesar
 
 def test_validador_char():
 
@@ -48,3 +48,13 @@ def test_encriptador_cesar():
 def test_creador_funciones_cesar():
 
   assert creador_funciones_encriptador_cesar(5)('hola, mundo!') == 'MTPF,EQZRIT!'
+
+def test_creador_de_pares():
+
+  clave = 5
+  mensaje = 'hola, mundo!'
+  encriptador_5 = creador_par_cesar(clave)[0]
+  desencriptador_5 = creador_par_cesar(clave)[1]
+
+  assert encriptador_5(mensaje) == 'MTPF,EQZRIT!'
+  assert desencriptador_5(mensaje) == 'HOLA, MUNDO!'
