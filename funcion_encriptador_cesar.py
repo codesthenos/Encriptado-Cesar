@@ -6,3 +6,6 @@ def encriptador_cesar(mensaje:str, clave:int)-> str:
     mensaje_encriptado += encriptador_char(char, clave)
 
   return mensaje_encriptado
+
+def encriptador_cesar_map(mensaje, clave):
+  return ''.join(list(map(lambda x: encriptador_char(x, clave), mensaje)))
